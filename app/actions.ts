@@ -2,7 +2,7 @@
 
 'use server'; // Magia de Next.js para ejecutar esto en el servidor
 
-import { neon, sql } from '@neondatabase/serverless';
+import { neon } from '@neondatabase/serverless';
 
 export async function saveResult(name: string, email: string, score: number) {
   // Obtenemos la URL de la base de datos del archivo .env que Vercel creó
