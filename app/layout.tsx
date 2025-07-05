@@ -16,8 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={inter.className}>
-        {children}
+      {/* Añadimos una clase para aplicar flexbox */}
+      <body className={`${inter.className} flex-container`}>
+        {/* Envolvemos el contenido en una etiqueta <main> */}
+        <main className="main-content">
+          {children}
+        </main>
         
         <footer className="main-footer">
           <p>Hecho con ❤️ by Cyberdark</p>
