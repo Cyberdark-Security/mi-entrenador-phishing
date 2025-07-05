@@ -19,5 +19,5 @@ const eslintConfig = [
         }
     }
 ];
-
+//esto es para que no de error al importar el archivo
 export default eslintConfig;
