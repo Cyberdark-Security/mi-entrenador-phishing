@@ -291,4 +291,15 @@
             display: inline-block;
             margin-bottom: 15px;
         }
+        
+.main-footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
 
+.main-footer p {
+  margin: 0;
+}
