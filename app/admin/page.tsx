@@ -14,16 +14,17 @@ async function getQuizResults() {
   }
 }
 
-// Este componente de servidor recibe "searchParams" para leer los parámetros de la URL
+// AQUÍ ESTÁ LA CORRECCIÓN: Se ajusta la definición de los props
 export default async function AdminPage({
   searchParams,
 }: {
-  searchParams: { secret: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const secretKey = searchParams.secret;
+  // Usamos 'optional chaining' (?.) para acceder de forma segura
+  const secretKey = searchParams?.secret;
   const adminKey = process.env.ADMIN_SECRET_KEY;
 
-  // 1. Verificación de la clave secreta
+  // 1. Verificación de seguridad
   if (secretKey !== adminKey || !adminKey) {
     return (
       <div className="container">
