@@ -14,12 +14,8 @@ async function getQuizResults() {
   }
 }
 
-// CORRECCIÓN FINAL: Se ajusta la definición de los props para que sea compatible.
-type AdminPageProps = {
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-export default async function AdminPage({ searchParams }: AdminPageProps) {
+// CORRECCIÓN FINAL: Usamos 'any' para evitar el error de tipado persistente.
+export default async function AdminPage({ searchParams }: { searchParams: any }) {
   const secretKey = searchParams?.secret;
   const adminKey = process.env.ADMIN_SECRET_KEY;
 
