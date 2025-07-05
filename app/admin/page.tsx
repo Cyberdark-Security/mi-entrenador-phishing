@@ -1,5 +1,4 @@
 // app/admin/page.tsx
-//Codigo de la página de administración del test
 
 import { db } from '@vercel/postgres';
 
@@ -15,7 +14,7 @@ async function getQuizResults() {
   }
 }
 
-// ESTA ES LA LÍNEA CORREGIDA:
+// CORRECCIÓN: Se ajusta la definición de los props para que sea compatible.
 export default async function AdminPage({
   searchParams,
 }: {
@@ -64,7 +63,7 @@ export default async function AdminPage({
               ))
             ) : (
               <tr>
-                <td colSpan={4} style={{ textAlign: 'center', padding: '12px' }}>
+                <td colSpan={4} style={{ padding: '12px', textAlign: 'center' }}>
                   Aún no hay resultados para mostrar.
                 </td>
               </tr>
