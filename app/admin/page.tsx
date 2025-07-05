@@ -18,11 +18,6 @@ export default async function AdminPage({ searchParams }: { searchParams: any })
   const secretKey = searchParams?.secret;
   const adminKey = process.env.ADMIN_SECRET_KEY;
 
-  // --- LÍNEAS DE DEPURACIÓN ---
-  console.log("Clave recibida en la URL:", secretKey);
-  console.log("Clave esperada del servidor:", adminKey);
-  // --------------------------
-
   if (secretKey !== adminKey || !adminKey) {
     return (
       <div className="container">
@@ -38,7 +33,39 @@ export default async function AdminPage({ searchParams }: { searchParams: any })
     <div className="container" style={{ maxWidth: '1000px', padding: '20px' }}>
       <h1>👨‍💻 Panel de Administración</h1>
       <p>Resultados detallados de todos los participantes.</p>
-      {/* El resto de la tabla va aquí como antes... */}
+
+      <div style={{ width: '100%', overflowX: 'auto', marginTop: '30px' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+          <thead>
+            <tr style={{ backgroundColor: '#f2f2f2' }}>
+              <th style={{ padding: '12px', border: '1px solid #ddd' }}>Nombre</th>
+              <th style={{ padding: '12px', border: '1px solid #ddd' }}>Correo Electrónico</th>
+              <th style={{ padding: '12px', border: '1px solid #ddd' }}>Puntuación</th>
+              <th style={{ padding: '12px', border: '1px solid #ddd' }}>Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            {results.length > 0 ? (
+              results.map((result: any, index: number) => (
+                <tr key={index}>
+                  <td style={{ padding: '12px', border: '1px solid #ddd' }}>{result.name}</td>
+                  <td style={{ padding: '12px', border: '1px solid #ddd' }}>{result.email}</td>
+                  <td style={{ padding: '12px', border: '1px solid #ddd' }}>{result.score} / 10</td>
+                  <td style={{ padding: '12px', border: '1px solid #ddd' }}>
+                    {new Date(result.created_at).toLocaleString('es-CO', { timeZone: 'America/Bogota' })}
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={4} style={{ padding: '12px', textAlign: 'center' }}>
+                  Aún no hay resultados para mostrar.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
