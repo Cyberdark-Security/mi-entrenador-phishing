@@ -1,27 +1,24 @@
 // app/actions.ts
 
-'use server'; // Magia de Next.js para ejecutar esto en el servidor
+'use server';
 
-import { neon } from '@neondatabase/serverless';
+// Paso 1: Cambiamos la importación por la de @vercel/postgres
+import { db } from '@vercel/postgres';
 
 export async function saveResult(name: string, email: string, score: number) {
-  // Obtenemos la URL de la base de datos del archivo .env que Vercel creó
-  const connectionString = process.env.DATABASE_URL;
-
-  if (!connectionString) {
-    throw new Error('La variable de entorno DATABASE_URL no está definida.');
-  }
-
-  const db_sql = neon(connectionString);
-
   try {
-    await db_sql`
-      INSERT INTO quiz_results (name, email, score)
-      VALUES (${name}, ${email}, ${score});
-    `;
+    // Paso 2: Usamos db.query para ejecutar el SQL. Es más directo.
+    // Los valores se pasan en un array para mayor seguridad.
+    await db.query(
+      `INSERT INTO quiz_results (name, email, score) VALUES ($1, $2, $3)`,
+      [name, email, score]
+    );
+
+    console.log('Resultado guardado exitosamente con @vercel/postgres.');
     return { success: true };
+    
   } catch (error) {
-    console.error('Error de base de datos:', error);
+    console.error('Error de base de datos con @vercel/postgres:', error);
     throw new Error('Error al guardar el resultado.');
   }
 }
