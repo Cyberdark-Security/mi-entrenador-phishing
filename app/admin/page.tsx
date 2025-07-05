@@ -1,4 +1,5 @@
 // app/admin/page.tsx
+//Codigo de la página de administración del test
 
 import { db } from '@vercel/postgres';
 
