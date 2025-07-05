@@ -14,17 +14,15 @@ async function getQuizResults() {
   }
 }
 
-// AQUÍ ESTÁ LA CORRECCIÓN: Se ajusta la definición de los props
+// ESTA ES LA LÍNEA CORREGIDA:
 export default async function AdminPage({
   searchParams,
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  // Usamos 'optional chaining' (?.) para acceder de forma segura
   const secretKey = searchParams?.secret;
   const adminKey = process.env.ADMIN_SECRET_KEY;
 
-  // 1. Verificación de seguridad
   if (secretKey !== adminKey || !adminKey) {
     return (
       <div className="container">
@@ -34,7 +32,6 @@ export default async function AdminPage({
     );
   }
 
-  // 2. Si la clave es correcta, se obtienen y muestran los datos
   const results = await getQuizResults();
 
   return (
@@ -66,7 +63,7 @@ export default async function AdminPage({
               ))
             ) : (
               <tr>
-                <td colSpan={4} style={{ padding: '12px', textAlign: 'center' }}>
+                <td colSpan={4} style={{ textAlign: 'center', padding: '12px' }}>
                   Aún no hay resultados para mostrar.
                 </td>
               </tr>
