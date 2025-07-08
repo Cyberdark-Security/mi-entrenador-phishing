@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mi Entrenador de Phishing 🎣
 
-## Getting Started
+Una aplicación web sencilla diseñada para simular un ataque de phishing con fines educativos. El objetivo es ayudar a los usuarios a reconocer las señales de un ataque y entender los riesgos de interactuar con enlaces y formularios sospechosos.
 
-First, run the development server:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FCyberdark-Security%2Fmi-entrenador-phishing)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Concepto del Proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+La simulación sigue un flujo de tres pasos para educar al usuario:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **📧 Correo Simulado (`index.html`):** Se presenta una página que imita un correo electrónico con una alerta de seguridad y un enlace para "verificar la cuenta".
+2.  **🔒 Página de Phishing (`login.html`):** Al hacer clic en el enlace, el usuario es dirigido a una página de inicio de sesión falsa que solicita credenciales.
+3.  **🎓 Resultado Educativo (`resultado.html`):** Después de que el usuario envía el formulario, en lugar de robar los datos, la aplicación lo redirige a una página de advertencia que explica que ha participado en una simulación y le ofrece consejos de seguridad.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tecnologías Utilizadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Este proyecto está construido con un enfoque minimalista y eficiente, ideal para despliegues rápidos en la nube.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **Frontend:** HTML, CSS, JavaScript.
+* **Backend:** Python con el micro-framework **Flask**.
+* **Plataforma de Despliegue:** **Vercel**.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 📄 Licencia
+
+Este proyecto está distribuido bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
