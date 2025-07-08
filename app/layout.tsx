@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/react'; // <-- 1. IMPORTA EL COMPONENTE
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,9 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      {/* Añadimos una clase para aplicar flexbox */}
       <body className={`${inter.className} flex-container`}>
-        {/* Envolvemos el contenido en una etiqueta <main> */}
         <main className="main-content">
           {children}
         </main>
@@ -27,6 +26,7 @@ export default function RootLayout({
           <p>Hecho con ❤️ by Cyberdark</p>
         </footer>
 
+        <Analytics /> {/* <-- 2. AÑADE EL COMPONENTE AQUÍ */}
       </body>
     </html>
   );
